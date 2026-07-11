@@ -4,10 +4,11 @@
 
 ## 功能
 
-| 功能 | 資料來源 | 說明 |
-|------|----------|------|
-| 上架商品 | eBay Browse API | 目前正在販售的商品 |
-| 已售出商品 | 網頁爬蟲 | 歷史成交價格資料 |
+| 功能 | 資料來源 | 說明 | 狀態 |
+|------|----------|------|------|
+| 上架商品 | eBay Browse API | 目前正在販售的商品 | ✅ 可用 |
+| 已售出商品 | 130point.com | 歷史成交價格資料 | ✅ 可用 |
+| 已售出商品 | eBay 網頁爬蟲 | 備用方案 (可能被擋) | ⚠️ 不穩定 |
 
 ## 安裝
 
@@ -131,9 +132,70 @@ scraper = EbaySoldScraper(proxy="http://your-proxy:8080")
 items = scraper.scrape("PSA 10 Jordan", max_pages=3)
 ```
 
+## 130point.com 爬蟲 (推薦)
+
+由於 eBay 有嚴格的反爬蟲機制，建議使用 130point.com 爬蟲取得已售出資料。
+
+### 基本使用
+
+```bash
+python 130point_scraper.py
+```
+
+### 修改搜尋條件
+
+編輯 `130point_scraper.py` 的 `main()` 函數：
+
+```python
+KEYWORDS = "panini one and one timeless moments auto"
+MIN_PRICE = 50
+MAX_PRICE = None
+SOLD_ONLY = True
+MAX_RESULTS = 50
+HEADLESS = False  # 建議使用 False，headless 容易被擋
+SAVE_TO_FIREBASE = False
+```
+
+### 程式碼範例
+
+```python
+from 130point_scraper import scrape_130point
+
+# 爬取已售出商品
+items = scrape_130point(
+    keywords="PSA 10 Luka Doncic",
+    min_price=100,
+    sold_only=True,
+    max_results=100
+)
+
+# 顯示統計
+for item in items[:5]:
+    print(f"{item['title'][:50]} - ${item['price']}")
+```
+
+### 輸出格式
+
+| 欄位 | 說明 |
+|------|------|
+| title | 商品標題 |
+| price | 成交價格 |
+| currency | 幣別 (USD) |
+| status | 狀態 (sold/live) |
+| listing_type | 拍賣類型 |
+| sold_date | 成交日期 |
+| source | 資料來源 (130point) |
+
+### 注意事項
+
+- 使用 `undetected-chromedriver` 繞過 Cloudflare 防護
+- **必須使用非 headless 模式** (會開啟瀏覽器視窗)
+- 首次訪問需等待約 10 秒進行 Cloudflare 驗證
+- 建議控制爬取頻率，避免被封鎖
+
 ## 注意事項
 
-1. **請遵守 eBay 使用條款**
+1. **請遵守網站使用條款**
 2. **控制爬取頻率**，避免對伺服器造成負擔
 3. **API 有每日呼叫次數限制** (免費帳號約 5000 次/日)
 4. **已售出資料可能不完整**，eBay 只保留約 90 天的成交記錄
@@ -207,7 +269,9 @@ card_stats/          # 統計資料
 
 ```
 scraper/
-├── ebay_scraper.py      # 主程式
+├── 130point_scraper.py  # 130point.com 爬蟲 (推薦)
+├── ebay_scraper.py      # eBay API + 網頁爬蟲
+├── selenium_scraper.py  # Selenium 爬蟲 (備用)
 ├── firebase_storage.py  # Firebase 儲存模組
 ├── config.py            # API 憑證 (不要 commit!)
 ├── config.example.py    # 設定檔範本
