@@ -4,6 +4,15 @@ import { useTranslations } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { ArrowLeft, Calendar } from 'lucide-react';
 import type { Article } from '@/types';
+import { locales } from '@/i18n/request';
+
+// Generate static params for all article slugs
+export function generateStaticParams() {
+  const slugs = ['psa-grading-tutorial-part-1', 'card-packaging-tips'];
+  return locales.flatMap((locale) =>
+    slugs.map((slug) => ({ locale, slug }))
+  );
+}
 
 // Sample article data (replace with Firebase data later)
 const sampleArticles: Record<string, Article> = {
