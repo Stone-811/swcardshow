@@ -38,3 +38,10 @@ next-env.d.ts
 
 # skills (local only)
 .agents/
+
+# scraper credentials and output
+scraper/config.py
+scraper/*.csv
+scraper/*.json
+__pycache__/
+*.pyc
