@@ -151,16 +151,69 @@ items = scraper.scrape("PSA 10 Jordan", max_pages=3)
 
 這些服務提供穩定的資料存取，但可能需要付費。
 
+## Firebase 儲存
+
+可將爬取資料存入 Firebase Firestore。
+
+### 設定步驟
+
+1. 前往 Firebase Console → 專案設定 → 服務帳戶
+2. 點擊「產生新的私密金鑰」下載 JSON
+3. 將 JSON 檔案放到 scraper 目錄
+4. 修改 `ebay_scraper.py` 的 main() 函數：
+
+```python
+SAVE_TO_FIREBASE = True
+FIREBASE_CREDENTIALS = 'serviceAccount.json'
+```
+
+### 程式碼範例
+
+```python
+from firebase_storage import FirebaseStorage, save_to_firebase
+
+# 方法 1: 使用便捷函數
+save_to_firebase(cards, 'serviceAccount.json')
+
+# 方法 2: 使用類別
+storage = FirebaseStorage('serviceAccount.json')
+storage.save_cards_batch(cards)
+
+# 查詢資料
+cards = storage.get_cards(keyword="Jordan", min_price=100)
+
+# 取得價格統計
+stats = storage.get_price_stats("PSA 10 Jordan")
+```
+
+### Firestore 集合結構
+
+```
+ebay_cards/          # 卡片資料
+  ├── {item_id}/
+  │   ├── title
+  │   ├── price
+  │   ├── source
+  │   └── created_at
+
+card_stats/          # 統計資料
+  └── {keyword}/
+      ├── avg_price
+      ├── min_price
+      └── max_price
+```
+
 ## 檔案結構
 
 ```
 scraper/
-├── ebay_scraper.py    # 主程式
-├── config.py          # API 憑證 (不要 commit!)
-├── config.example.py  # 設定檔範本
-├── requirements.txt   # 依賴套件
-├── README.md          # 說明文件
-└── *.csv / *.json     # 輸出檔案 (不要 commit!)
+├── ebay_scraper.py      # 主程式
+├── firebase_storage.py  # Firebase 儲存模組
+├── config.py            # API 憑證 (不要 commit!)
+├── config.example.py    # 設定檔範本
+├── requirements.txt     # 依賴套件
+├── README.md            # 說明文件
+└── *.csv / *.json       # 輸出檔案 (不要 commit!)
 ```
 
 ## License

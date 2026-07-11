@@ -435,6 +435,8 @@ def main():
     MAX_PRICE = 5000
     MAX_PAGES = 3  # 已售出商品的最大頁數
     API_LIMIT = 50  # 上架商品的最大筆數
+    SAVE_TO_FIREBASE = False  # 是否存入 Firebase
+    FIREBASE_CREDENTIALS = None  # Firebase 憑證路徑
 
     print("\n" + "=" * 60)
     print("eBay 球卡爬蟲")
@@ -460,25 +462,36 @@ def main():
     all_items = sold_items + listing_items
 
     if all_items:
-        # 顯示前 5 筆已售出
-        if sold_items:
-            print("\n前 5 筆已售出商品:")
+        # 顯示前 5 筆
+        if listing_items:
+            print("\n前 5 筆上架商品:")
             print("-" * 60)
-            for item in sold_items[:5]:
+            for item in listing_items[:5]:
                 print(f"標題: {item['title'][:60]}...")
-                print(f"成交價: ${item['price']:.2f} | {item['sold_date']}")
+                print(f"價格: ${item['price']:.2f}")
                 print("-" * 60)
 
         # 統計
-        print_statistics(sold_items)
+        print_statistics(listing_items if listing_items else sold_items)
 
-        # 儲存
+        # 儲存到檔案
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         if sold_items:
             save_to_csv(sold_items, f'sold_cards_{timestamp}.csv')
             save_to_json(sold_items, f'sold_cards_{timestamp}.json')
         if listing_items:
             save_to_csv(listing_items, f'listings_{timestamp}.csv')
+            save_to_json(listing_items, f'listings_{timestamp}.json')
+
+        # 儲存到 Firebase
+        if SAVE_TO_FIREBASE:
+            try:
+                from firebase_storage import save_to_firebase
+                save_to_firebase(all_items, FIREBASE_CREDENTIALS)
+            except ImportError:
+                print("請安裝 firebase-admin: pip install firebase-admin")
+            except Exception as e:
+                print(f"Firebase 儲存失敗: {e}")
     else:
         print("\n沒有找到任何結果")
 
