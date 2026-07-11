@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "articles": "Articles",
+    "products": "Products",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "title": "SW ProCard",
+      "subtitle": "Professional Sports Card Grading & Authentication",
+      "description": "We provide the most professional sports card collection, grading and authentication services. Let your precious collection receive the value certification it deserves.",
+      "cta": "Learn More",
+      "ctaProducts": "Browse Products"
+    },
+    "services": {
+      "title": "Our Services",
+      "grading": {
+        "title": "PSA Grading Service",
+        "description": "Complete PSA sports card grading submission service, from application to packaging."
+      },
+      "authentication": {
+        "title": "Card Authentication",
+        "description": "Professional sports card authenticity verification to ensure your collection quality."
+      },
+      "consultation": {
+        "title": "Collection Consulting",
+        "description": "Professional sports card collection advice and market analysis."
+      }
+    },
+    "featured": {
+      "title": "Featured Articles",
+      "viewAll": "View All"
+    }
+  },
+  "about": {
+    "title": "About SW ProCard",
+    "intro": {
+      "title": "Who We Are",
+      "description": "SW ProCard is a professional platform focused on sports card collection, grading and authentication. We are committed to providing collectors with the most comprehensive services and latest collection information."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To help every collector easily understand the card grading process and obtain professional authentication services. We believe that every sports card carries a unique story and value."
+    },
+    "services": {
+      "title": "Services",
+      "items": [
+        "PSA Grading Submission Service",
+        "Sports Card Authentication",
+        "Collection Appraisal Service",
+        "International Shipping Assistance",
+        "Collection Consulting Service"
+      ]
+    }
+  },
+  "articles": {
+    "title": "Articles",
+    "subtitle": "Learn about the latest sports card collection information and grading knowledge",
+    "readMore": "Read More",
+    "categories": {
+      "all": "All",
+      "tutorial": "Tutorial",
+      "news": "News",
+      "tips": "Tips"
+    },
+    "empty": "No articles available"
+  },
+  "products": {
+    "title": "Products",
+    "subtitle": "Selected sports cards and collectibles",
+    "buyNow": "Buy Now",
+    "price": "Price",
+    "categories": {
+      "all": "All",
+      "cards": "Sports Cards",
+      "supplies": "Supplies",
+      "accessories": "Accessories"
+    },
+    "empty": "No products available"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Feel free to contact us with any questions",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Submit",
+      "sending": "Sending...",
+      "success": "Message sent! We will get back to you soon.",
+      "error": "Failed to send. Please try again later."
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "store": "Yahoo Auction Store"
+    }
+  },
+  "footer": {
+    "description": "Professional sports card grading and authentication services",
+    "links": "Quick Links",
+    "contact": "Contact Info",
+    "copyright": "All Rights Reserved"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "backToHome": "Back to Home"
+  }
+}

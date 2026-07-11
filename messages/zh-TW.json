@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "home": "首頁",
+    "about": "關於我們",
+    "articles": "精選文章",
+    "products": "商品專區",
+    "contact": "聯絡我們"
+  },
+  "home": {
+    "hero": {
+      "title": "SW ProCard",
+      "subtitle": "專業球員卡鑑定與認證服務",
+      "description": "提供最專業的球員卡收藏、鑑定與認證服務。讓您的珍貴收藏獲得應有的價值認證。",
+      "cta": "了解更多",
+      "ctaProducts": "瀏覽商品"
+    },
+    "services": {
+      "title": "我們的服務",
+      "grading": {
+        "title": "PSA 鑑定代送",
+        "description": "提供完整的 PSA 球員卡鑑定代送服務，從申請到包裝一條龍服務。"
+      },
+      "authentication": {
+        "title": "卡片認證",
+        "description": "專業的球員卡真偽鑑定，確保您的收藏品質。"
+      },
+      "consultation": {
+        "title": "收藏諮詢",
+        "description": "提供專業的球員卡收藏建議與市場分析。"
+      }
+    },
+    "featured": {
+      "title": "精選文章",
+      "viewAll": "查看全部"
+    }
+  },
+  "about": {
+    "title": "關於 SW ProCard",
+    "intro": {
+      "title": "我們是誰",
+      "description": "SW ProCard 是一個專注於球員卡收藏、鑑定與認證的專業平台。我們致力於為球員卡收藏愛好者提供最完善的服務與最新的收藏資訊。"
+    },
+    "mission": {
+      "title": "我們的使命",
+      "description": "讓每一位收藏家都能輕鬆了解球員卡鑑定流程，並獲得專業的認證服務。我們相信，每一張球員卡都承載著獨特的故事與價值。"
+    },
+    "services": {
+      "title": "服務項目",
+      "items": [
+        "PSA 鑑定代送服務",
+        "球員卡真偽鑑定",
+        "收藏品估價服務",
+        "國際運送協助",
+        "收藏諮詢服務"
+      ]
+    }
+  },
+  "articles": {
+    "title": "精選文章",
+    "subtitle": "了解最新的球員卡收藏資訊與鑑定知識",
+    "readMore": "閱讀更多",
+    "categories": {
+      "all": "全部",
+      "tutorial": "教學",
+      "news": "新聞",
+      "tips": "技巧"
+    },
+    "empty": "目前沒有文章"
+  },
+  "products": {
+    "title": "商品專區",
+    "subtitle": "精選球員卡與收藏品",
+    "buyNow": "前往購買",
+    "price": "價格",
+    "categories": {
+      "all": "全部",
+      "cards": "球員卡",
+      "supplies": "周邊商品",
+      "accessories": "配件"
+    },
+    "empty": "目前沒有商品"
+  },
+  "contact": {
+    "title": "聯絡我們",
+    "subtitle": "有任何問題歡迎與我們聯繫",
+    "form": {
+      "name": "姓名",
+      "email": "電子郵件",
+      "message": "訊息內容",
+      "submit": "送出",
+      "sending": "送出中...",
+      "success": "訊息已送出，我們會盡快回覆您！",
+      "error": "送出失敗，請稍後再試。"
+    },
+    "info": {
+      "title": "聯絡資訊",
+      "email": "電子郵件",
+      "store": "Yahoo 拍賣商店"
+    }
+  },
+  "footer": {
+    "description": "專業球員卡鑑定與認證服務",
+    "links": "快速連結",
+    "contact": "聯絡資訊",
+    "copyright": "版權所有"
+  },
+  "common": {
+    "loading": "載入中...",
+    "error": "發生錯誤",
+    "backToHome": "返回首頁"
+  }
+}
